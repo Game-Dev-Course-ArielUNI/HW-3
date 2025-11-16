@@ -22,7 +22,11 @@ public class LifeManager : MonoBehaviour
 
     public void PlayerHit()
     {
+
         currentLives--;
+
+        Debug.Log("PlayerHit() called! Lives now = " + currentLives);
+
 
         UpdateHeartsUI();
 
@@ -35,6 +39,11 @@ public class LifeManager : MonoBehaviour
             RespawnPlayer();
         }
     }
+    public int GetLives()
+    {
+        return currentLives;
+    }
+
 
     private void RespawnPlayer()
     {

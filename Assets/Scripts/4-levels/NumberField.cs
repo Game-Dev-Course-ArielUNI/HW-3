@@ -1,12 +1,9 @@
 ﻿using TMPro;
 using UnityEngine;
 
-/**
- * This component should be attached to a TextMeshPro object.
- * It allows to feed an integer number to the text field.
- */
 [RequireComponent(typeof(TextMeshProUGUI))]
-public class NumberField : MonoBehaviour {
+public class NumberField : MonoBehaviour
+{
     private int number;
     private TextMeshProUGUI tmp;
 
@@ -14,17 +11,20 @@ public class NumberField : MonoBehaviour {
     {
         tmp = GetComponent<TextMeshProUGUI>();
     }
-    public int GetNumber() {
+
+    public int GetNumber()
+    {
         return this.number;
     }
 
-    public void SetNumber(int newNumber) {
+    public void SetNumber(int newNumber)
+    {
         this.number = newNumber;
         tmp.text = newNumber.ToString();
-        // GetComponent<TextMeshProUGUI>().text = newNumber.ToString();
     }
 
-    public void AddNumber(int toAdd) {
+    public void AddNumber(int toAdd)
+    {
         SetNumber(this.number + toAdd);
     }
 }

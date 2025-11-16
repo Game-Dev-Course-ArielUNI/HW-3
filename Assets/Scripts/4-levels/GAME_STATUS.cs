@@ -5,6 +5,4 @@
  */
 public class GAME_STATUS: MonoBehaviour {
     public static int playerScore = 0;
-    public static int playerLives = 3;
-
 }
