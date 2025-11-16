@@ -20,8 +20,9 @@ public class LaserShooter: ClickSpawner {
 
     private void AddScore()
     {
-        scoreField.AddNumber(pointsToAdd);
+        GAME_STATUS.playerScore += pointsToAdd;
     }
+
 
     protected override GameObject spawnObject() {
         GameObject newObject = base.spawnObject();  // base = super

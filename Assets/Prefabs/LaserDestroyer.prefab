@@ -184,6 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOnTrigger2D
   triggeringTag: Enemy
+  destroyThisObject: 1
+  destroyOtherObject: 1
 --- !u!114 &4383555931077428505
 MonoBehaviour:
   m_ObjectHideFlags: 0
