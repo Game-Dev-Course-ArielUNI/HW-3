@@ -27,6 +27,9 @@ public class LifeManager : MonoBehaviour
     /// </summary>
     public void PlayerGotHit()
     {
+        if (CameraShake.Instance != null)
+            CameraShake.Instance.Shake();
+
         PlayerLives.CurrentLives--;
 
         if (PlayerLives.CurrentLives < 0)
