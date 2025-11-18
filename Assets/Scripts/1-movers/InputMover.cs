@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 /**
@@ -25,7 +25,7 @@ public class InputMover : MonoBehaviour
     private void Update()
     {
         Vector2 moveDirection = move.ReadValue<Vector2>();
-        Vector3 movementVector = new Vector3(moveDirection.x, moveDirection.y, 0) * speed * Time.deltaTime;
+        Vector3 movementVector = new Vector3(moveDirection.x, moveDirection.y, 0f) * speed * Time.deltaTime;
         transform.position += movementVector;
 
         // transform.Translate(movementVector);
