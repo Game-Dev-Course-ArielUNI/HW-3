@@ -13,7 +13,7 @@ public class LifeManager : MonoBehaviour
     private void Awake()
     {
         // For level 1: reset to 3 lives.
-        // For level 2, 3...: keep whatever we had from previous level.
+        // For level 2,keep whatever we had from previous level.
         if (resetLivesOnSceneStart)
         {
             PlayerLives.ResetLives();
@@ -22,9 +22,7 @@ public class LifeManager : MonoBehaviour
         UpdateHeartsUI();
     }
 
-    /// <summary>
-    /// Called by PlayerHitDetector whenever the player gets hit by an enemy.
-    /// </summary>
+    
     public void PlayerGotHit()
     {
         if (CameraShake.Instance != null)
@@ -57,72 +55,3 @@ public class LifeManager : MonoBehaviour
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//using UnityEngine;
-//using UnityEngine.UI;
-//using UnityEngine.SceneManagement;
-
-//public class LifeManager : MonoBehaviour
-//{
-//    [Header("Lives")]
-//    [SerializeField] int maxLives = 3;
-
-//    [Header("UI hearts (from left to right)")]
-//    [SerializeField] Image[] heartImages;
-
-//    private int currentLives;
-
-//    private void Awake()
-//    {
-//        currentLives = maxLives;
-//        UpdateHeartsUI();
-//    }
-
-//    /// <summary>
-//    /// Call this when the player is hit by an enemy.
-//    /// Returns true if player is still alive, false if game over.
-//    /// </summary>
-//    public bool PlayerGotHit()
-//    {
-//        currentLives--;
-//        UpdateHeartsUI();
-
-//        if (currentLives <= 0)
-//        {
-//            // Game over: reload scene (you can change this later)
-//            Scene current = SceneManager.GetActiveScene();
-//            SceneManager.LoadScene(current.buildIndex);
-//            return false;
-//        }
-
-//        return true;
-//    }
-
-//    private void UpdateHeartsUI()
-//    {
-//        if (heartImages == null)
-//            return;
-
-//        for (int i = 0; i < heartImages.Length; i++)
-//        {
-//            bool shouldBeVisible = (i < currentLives);
-//            if (heartImages[i] != null)
-//            {
-//                heartImages[i].enabled = shouldBeVisible;
-//            }
-//        }
-//    }
-//}
