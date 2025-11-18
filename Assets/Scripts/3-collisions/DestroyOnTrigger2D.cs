@@ -8,11 +8,11 @@ using UnityEngine;
 public class DestroyOnTrigger2D : MonoBehaviour
 {
     [Tooltip("Every object tagged with this tag will trigger the destruction of both objects")]
-    [SerializeField] string triggeringTag;
+    [SerializeField] private string triggeringTag;
     [SerializeField] private GameObject explosionPrefab;
 
-
-    public event System.Action onHit;  // "public event" means that other objects can just subscribe or unsubscribe, but not do other stuff with this public variable.
+    // "public event" means that other objects can just subscribe or unsubscribe, but not do other stuff with this public variable.
+    public event System.Action onHit;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,9 +21,8 @@ public class DestroyOnTrigger2D : MonoBehaviour
             if (explosionPrefab != null)
             {
                 Vector3 pos = transform.position;
-                pos.z = -1f;   // bring explosion IN FRONT of gameplay
+                pos.z = -1f; // bring explosion IN FRONT of gameplay
                 Instantiate(explosionPrefab, pos, Quaternion.identity);
-
             }
 
             Destroy(this.gameObject);
