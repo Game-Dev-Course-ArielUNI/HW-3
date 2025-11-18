@@ -13,7 +13,7 @@ public class LifeManager : MonoBehaviour
     private void Awake()
     {
         // For level 1: reset to 3 lives.
-        // For level 2,keep whatever we had from previous level.
+        // For level 2, keep whatever we had from previous level.
         if (resetLivesOnSceneStart)
         {
             PlayerLives.ResetLives();
@@ -22,16 +22,19 @@ public class LifeManager : MonoBehaviour
         UpdateHeartsUI();
     }
 
-    
     public void PlayerGotHit()
     {
         if (CameraShake.Instance != null)
+        {
             CameraShake.Instance.Shake();
+        }
 
         PlayerLives.CurrentLives--;
 
         if (PlayerLives.CurrentLives < 0)
+        {
             PlayerLives.CurrentLives = 0;
+        }
 
         UpdateHeartsUI();
 
@@ -44,11 +47,17 @@ public class LifeManager : MonoBehaviour
 
     private void UpdateHeartsUI()
     {
-        if (heartImages == null) return;
+        if (heartImages == null)
+        {
+            return;
+        }
 
         for (int i = 0; i < heartImages.Length; i++)
         {
-            if (heartImages[i] == null) continue;
+            if (heartImages[i] == null)
+            {
+                continue;
+            }
 
             // Show hearts only up to CurrentLives
             heartImages[i].enabled = (i < PlayerLives.CurrentLives);
