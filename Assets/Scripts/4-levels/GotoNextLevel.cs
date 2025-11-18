@@ -1,16 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GotoNextLevel : MonoBehaviour {
-    [SerializeField] string triggeringTag;
-    [SerializeField] [Tooltip("Name of scene to move to when triggering the given tag")] string sceneName;
-    //[SerializeField] NumberField scoreField;
+public class GotoNextLevel : MonoBehaviour
+{
+    [SerializeField] private string triggeringTag;
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == triggeringTag) {
+    [SerializeField]
+    [Tooltip("Name of scene to move to when triggering the given tag")]
+    private string sceneName;
+
+    // [SerializeField] NumberField scoreField;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == triggeringTag)
+        {
             Debug.Log("Moving " + this + " to zero");
-            this.transform.position = Vector3.zero;
-            SceneManager.LoadScene(sceneName);    // Input can either be a serial number or a name; here we use name.
+            transform.position = Vector3.zero;
+            SceneManager.LoadScene(sceneName); // Input can either be a serial number or a name; here we use name.
         }
     }
 }
